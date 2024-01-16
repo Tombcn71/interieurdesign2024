@@ -27,11 +27,11 @@ const options: UploadWidgetConfig = {
   styles: {
     colors: {
       primary: "#008080", // Primary buttons & links
-      error: "#d23f4d", // Error messages
-      shade100: "#fff", // Standard text
+      error: "#000000", // Error messages
+      shade100: "#000000", // Standard text
       shade200: "#fffe", // Secondary button text
       shade300: "#fffd", // Secondary button text (hover)
-      shade400: "#fffc", // Welcome text
+      shade400: "#000000", // Welcome text
       shade500: "#fff9", // Modal close button
       shade600: "#808080", // Border
       shade700: "#fff2", // Progress indicator background
