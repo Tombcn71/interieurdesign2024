@@ -2,6 +2,7 @@ import { Ratelimit } from "@upstash/ratelimit";
 import redis from "../../utils/redis";
 import { NextResponse } from "next/server";
 import { headers } from "next/headers";
+import toast, { Toaster } from "react-hot-toast";
 
 // Create a new ratelimiter, that allows 5 requests per 24 hours
 const ratelimit = redis
@@ -11,6 +12,7 @@ const ratelimit = redis
       analytics: true,
     })
   : undefined;
+const notify = () => toast("Here is your toast.");
 
 export async function POST(request: Request) {
   // Rate Limiter Code
@@ -21,6 +23,9 @@ export async function POST(request: Request) {
     const result = await ratelimit.limit(ipIdentifier ?? "");
 
     if (!result.success) {
+      notify;
+    }
+    {
       return new Response(
         "Too many uploads in 1 day. Please try again in a 24 hours.",
         {
