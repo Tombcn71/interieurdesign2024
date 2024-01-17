@@ -12,7 +12,6 @@ const ratelimit = redis
       analytics: true,
     })
   : undefined;
-const notify = () => toast("Here is your toast.");
 
 export async function POST(request: Request) {
   // Rate Limiter Code
@@ -23,9 +22,6 @@ export async function POST(request: Request) {
     const result = await ratelimit.limit(ipIdentifier ?? "");
 
     if (!result.success) {
-      notify;
-    }
-    {
       return new Response(
         "Too many uploads in 1 day. Please try again in a 24 hours.",
         {
